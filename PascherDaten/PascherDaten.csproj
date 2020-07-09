@@ -5,6 +5,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <AssemblyName>PADaten</AssemblyName>
+    <Authors>Omid Ooops</Authors>
+    <Company>Ooops!</Company>
   </PropertyGroup>
 
 </Project>

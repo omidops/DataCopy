@@ -35,8 +35,8 @@
             this.lbTotal = new System.Windows.Forms.Label();
             this.lbPerzentage = new System.Windows.Forms.Label();
             this.procBar = new System.Windows.Forms.ProgressBar();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbUntil = new System.Windows.Forms.Label();
+            this.lbFrom = new System.Windows.Forms.Label();
             this.dateTimePickerTil = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
             this.cmboxScenario = new System.Windows.Forms.ComboBox();
@@ -49,6 +49,7 @@
             this.lbDestPath = new System.Windows.Forms.Label();
             this.lbSourcePath = new System.Windows.Forms.Label();
             this.tabcntDelete = new System.Windows.Forms.TabPage();
+            this.progBarDel = new System.Windows.Forms.ProgressBar();
             this.btnRunDel = new System.Windows.Forms.Button();
             this.dateTimePickerDTil = new System.Windows.Forms.DateTimePicker();
             this.lbTimeselectorD = new System.Windows.Forms.Label();
@@ -57,14 +58,10 @@
             this.lbPath = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabCnt.SuspendLayout();
             this.tabCntCopy.SuspendLayout();
             this.tabcntDelete.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabCnt
@@ -87,8 +84,8 @@
             this.tabCntCopy.Controls.Add(this.lbTotal);
             this.tabCntCopy.Controls.Add(this.lbPerzentage);
             this.tabCntCopy.Controls.Add(this.procBar);
-            this.tabCntCopy.Controls.Add(this.label3);
-            this.tabCntCopy.Controls.Add(this.label2);
+            this.tabCntCopy.Controls.Add(this.lbUntil);
+            this.tabCntCopy.Controls.Add(this.lbFrom);
             this.tabCntCopy.Controls.Add(this.dateTimePickerTil);
             this.tabCntCopy.Controls.Add(this.dateTimePickerFrom);
             this.tabCntCopy.Controls.Add(this.cmboxScenario);
@@ -111,7 +108,7 @@
             // lbtotalFilevalue
             // 
             this.lbtotalFilevalue.AutoSize = true;
-            this.lbtotalFilevalue.Location = new System.Drawing.Point(67, 184);
+            this.lbtotalFilevalue.Location = new System.Drawing.Point(148, 184);
             this.lbtotalFilevalue.Name = "lbtotalFilevalue";
             this.lbtotalFilevalue.Size = new System.Drawing.Size(0, 15);
             this.lbtotalFilevalue.TabIndex = 14;
@@ -121,9 +118,9 @@
             this.lbTotal.AutoSize = true;
             this.lbTotal.Location = new System.Drawing.Point(10, 184);
             this.lbTotal.Name = "lbTotal";
-            this.lbTotal.Size = new System.Drawing.Size(59, 15);
+            this.lbTotal.Size = new System.Drawing.Size(134, 15);
             this.lbTotal.TabIndex = 13;
-            this.lbTotal.Text = "Total files:";
+            this.lbTotal.Text = "Gesamtzahl der Dateien:";
             // 
             // lbPerzentage
             // 
@@ -141,23 +138,23 @@
             this.procBar.Size = new System.Drawing.Size(239, 23);
             this.procBar.TabIndex = 11;
             // 
-            // label3
+            // lbUntil
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 156);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 15);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Until";
+            this.lbUntil.AutoSize = true;
+            this.lbUntil.Location = new System.Drawing.Point(10, 156);
+            this.lbUntil.Name = "lbUntil";
+            this.lbUntil.Size = new System.Drawing.Size(22, 15);
+            this.lbUntil.TabIndex = 10;
+            this.lbUntil.Text = "Bis";
             // 
-            // label2
+            // lbFrom
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 118);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 15);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "From";
+            this.lbFrom.AutoSize = true;
+            this.lbFrom.Location = new System.Drawing.Point(10, 118);
+            this.lbFrom.Name = "lbFrom";
+            this.lbFrom.Size = new System.Drawing.Size(27, 15);
+            this.lbFrom.TabIndex = 9;
+            this.lbFrom.Text = "Von";
             // 
             // dateTimePickerTil
             // 
@@ -182,17 +179,17 @@
             "last 7 days"});
             this.cmboxScenario.FormattingEnabled = true;
             this.cmboxScenario.Items.AddRange(new object[] {
-            "Today",
-            "Last 7 days",
-            "Last 14 days",
-            "Last 30 days",
-            "Last 45 days",
-            "Custom"});
-            this.cmboxScenario.Location = new System.Drawing.Point(116, 73);
+            "Heute",
+            "Letzten 7 Tage",
+            "Letzten 14 Tage",
+            "Letzten 30 Tage",
+            "Letzten 45 Tage",
+            "Benutzerdefiniert"});
+            this.cmboxScenario.Location = new System.Drawing.Point(139, 73);
             this.cmboxScenario.Name = "cmboxScenario";
             this.cmboxScenario.Size = new System.Drawing.Size(172, 23);
             this.cmboxScenario.TabIndex = 6;
-            this.cmboxScenario.Text = "Today";
+            this.cmboxScenario.Text = "Heute";
             this.cmboxScenario.SelectedIndexChanged += new System.EventHandler(this.cmboxScenario_SelectedIndexChanged);
             // 
             // lbTimeSelect
@@ -200,9 +197,9 @@
             this.lbTimeSelect.AutoSize = true;
             this.lbTimeSelect.Location = new System.Drawing.Point(10, 78);
             this.lbTimeSelect.Name = "lbTimeSelect";
-            this.lbTimeSelect.Size = new System.Drawing.Size(109, 15);
+            this.lbTimeSelect.Size = new System.Drawing.Size(116, 15);
             this.lbTimeSelect.TabIndex = 5;
-            this.lbTimeSelect.Text = "Quick time selector";
+            this.lbTimeSelect.Text = "schnelle Zeitauswahl";
             // 
             // btnRun
             // 
@@ -212,7 +209,7 @@
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(71, 25);
             this.btnRun.TabIndex = 4;
-            this.btnRun.Text = "Run";
+            this.btnRun.Text = "Kopieren";
             this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
             // 
             // btnDstPath
@@ -250,9 +247,9 @@
             // 
             this.txtboxSrcPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtboxSrcPath.Location = new System.Drawing.Point(72, 9);
+            this.txtboxSrcPath.Location = new System.Drawing.Point(84, 9);
             this.txtboxSrcPath.Name = "txtboxSrcPath";
-            this.txtboxSrcPath.Size = new System.Drawing.Size(264, 23);
+            this.txtboxSrcPath.Size = new System.Drawing.Size(252, 23);
             this.txtboxSrcPath.TabIndex = 2;
             // 
             // lbDestPath
@@ -260,21 +257,22 @@
             this.lbDestPath.AutoSize = true;
             this.lbDestPath.Location = new System.Drawing.Point(10, 44);
             this.lbDestPath.Name = "lbDestPath";
-            this.lbDestPath.Size = new System.Drawing.Size(67, 15);
+            this.lbDestPath.Size = new System.Drawing.Size(26, 15);
             this.lbDestPath.TabIndex = 1;
-            this.lbDestPath.Text = "Destination";
+            this.lbDestPath.Text = "Ziel";
             // 
             // lbSourcePath
             // 
             this.lbSourcePath.AutoSize = true;
             this.lbSourcePath.Location = new System.Drawing.Point(10, 10);
             this.lbSourcePath.Name = "lbSourcePath";
-            this.lbSourcePath.Size = new System.Drawing.Size(43, 15);
+            this.lbSourcePath.Size = new System.Drawing.Size(56, 15);
             this.lbSourcePath.TabIndex = 0;
-            this.lbSourcePath.Text = "Source";
+            this.lbSourcePath.Text = "Ursprung";
             // 
             // tabcntDelete
             // 
+            this.tabcntDelete.Controls.Add(this.progBarDel);
             this.tabcntDelete.Controls.Add(this.btnRunDel);
             this.tabcntDelete.Controls.Add(this.dateTimePickerDTil);
             this.tabcntDelete.Controls.Add(this.lbTimeselectorD);
@@ -286,8 +284,15 @@
             this.tabcntDelete.Padding = new System.Windows.Forms.Padding(3);
             this.tabcntDelete.Size = new System.Drawing.Size(372, 249);
             this.tabcntDelete.TabIndex = 1;
-            this.tabcntDelete.Text = "Delete";
+            this.tabcntDelete.Text = "Löschen";
             this.tabcntDelete.UseVisualStyleBackColor = true;
+            // 
+            // progBarDel
+            // 
+            this.progBarDel.Location = new System.Drawing.Point(54, 160);
+            this.progBarDel.Name = "progBarDel";
+            this.progBarDel.Size = new System.Drawing.Size(250, 23);
+            this.progBarDel.TabIndex = 7;
             // 
             // btnRunDel
             // 
@@ -296,14 +301,14 @@
             this.btnRunDel.Name = "btnRunDel";
             this.btnRunDel.Size = new System.Drawing.Size(71, 25);
             this.btnRunDel.TabIndex = 0;
-            this.btnRunDel.Text = "Run";
+            this.btnRunDel.Text = "Löschen !!";
             this.btnRunDel.Click += new System.EventHandler(this.btnRunDel_Click);
             // 
             // dateTimePickerDTil
             // 
-            this.dateTimePickerDTil.Location = new System.Drawing.Point(47, 93);
+            this.dateTimePickerDTil.Location = new System.Drawing.Point(60, 93);
             this.dateTimePickerDTil.Name = "dateTimePickerDTil";
-            this.dateTimePickerDTil.Size = new System.Drawing.Size(200, 23);
+            this.dateTimePickerDTil.Size = new System.Drawing.Size(205, 23);
             this.dateTimePickerDTil.TabIndex = 6;
             // 
             // lbTimeselectorD
@@ -311,9 +316,9 @@
             this.lbTimeselectorD.AutoSize = true;
             this.lbTimeselectorD.Location = new System.Drawing.Point(10, 57);
             this.lbTimeselectorD.Name = "lbTimeselectorD";
-            this.lbTimeselectorD.Size = new System.Drawing.Size(165, 15);
+            this.lbTimeselectorD.Size = new System.Drawing.Size(203, 15);
             this.lbTimeselectorD.TabIndex = 2;
-            this.lbTimeselectorD.Text = "All files with modify date until";
+            this.lbTimeselectorD.Text = "alle Dateien mit Änderungsdatum bis";
             // 
             // btnPathSeletor
             // 
@@ -329,9 +334,9 @@
             // 
             this.txtBoxPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBoxPath.Location = new System.Drawing.Point(46, 9);
+            this.txtBoxPath.Location = new System.Drawing.Point(60, 9);
             this.txtBoxPath.Name = "txtBoxPath";
-            this.txtBoxPath.Size = new System.Drawing.Size(258, 23);
+            this.txtBoxPath.Size = new System.Drawing.Size(244, 23);
             this.txtBoxPath.TabIndex = 1;
             // 
             // lbPath
@@ -339,50 +344,19 @@
             this.lbPath.AutoSize = true;
             this.lbPath.Location = new System.Drawing.Point(10, 9);
             this.lbPath.Name = "lbPath";
-            this.lbPath.Size = new System.Drawing.Size(31, 15);
+            this.lbPath.Size = new System.Drawing.Size(44, 15);
             this.lbPath.TabIndex = 0;
-            this.lbPath.Text = "Path";
+            this.lbPath.Text = "Ordner";
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(198, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(8, 8);
-            this.tabControl1.TabIndex = 1;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(0, 0);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(0, 0);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // PADaten
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 280);
-            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.tabCnt);
             this.MaximumSize = new System.Drawing.Size(600, 400);
             this.MinimumSize = new System.Drawing.Size(400, 319);
@@ -395,7 +369,6 @@
             this.tabcntDelete.ResumeLayout(false);
             this.tabcntDelete.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -415,8 +388,8 @@
         private System.Windows.Forms.Button btnRun;
         private System.Windows.Forms.ComboBox cmboxScenario;
         private System.Windows.Forms.Label lbTimeSelect;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbUntil;
+        private System.Windows.Forms.Label lbFrom;
         private System.Windows.Forms.DateTimePicker dateTimePickerTil;
         private System.Windows.Forms.DateTimePicker dateTimePickerFrom;
         private System.Windows.Forms.Button btnPathSeletor;
@@ -430,9 +403,7 @@
         private System.Windows.Forms.Label lbPerzentage;
         private System.Windows.Forms.Label lbtotalFilevalue;
         private System.Windows.Forms.Label lbTotal;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.ProgressBar progBarDel;
     }
 }
 

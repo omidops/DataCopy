@@ -198,6 +198,7 @@ namespace PascherDaten
 
         private void btnPathSeletor_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
             var result = folderBrowserDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -208,12 +209,67 @@ namespace PascherDaten
         private void btnRunDel_Click(object sender, EventArgs e)
         {
             string path = txtBoxPath.Text;
+            if (path.Length < 3 && !Directory.Exists(path))
+            {
+                errorProvider1.SetError(txtBoxPath, "Please Enter a valid Path");
+                return;
+            }
+            progBarDel.Value = 0;
+            btnRunDel.Enabled = false;
 
             DateTime selectedtime = dateTimePickerDTil.Value.Date;
 
-            
+            progBarDel.Value = 1;
 
-            Helper.DeleteFiles(path, selectedtime);
+            var files = Directory
+                            .GetFiles(path, "*", SearchOption.AllDirectories)
+                            .ToList()
+                            .ConvertAll(file => new FileInfo(file))
+                            .Where(file => file.LastWriteTime.Date <= selectedtime);
+            
+            var totalfiles = files.Count();
+            progBarDel.Value = 10;
+            if (totalfiles<1)
+            {
+                progBarDel.Value = 0;
+                btnRunDel.Enabled = true;
+                MessageBox.Show("Zum ausgewählten Zeitpunkt ist keine Datei zum Löschen vorhanden");
+                return;
+            }
+
+            var result = MessageBox.Show(
+                $"Es gibt {totalfiles} Dateien, die gelöscht werden. Möchten Sie alle weiterhin löschen?", 
+                "Frage", 
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.No) {
+                progBarDel.Value = 0;
+                btnRunDel.Enabled = true;
+                return;
+            }
+
+            int fileIndex = 1;
+            totalfiles++;
+            Parallel.ForEach(files, (file) =>
+            {
+                if (file.Exists) file.Delete();
+                //procBar.BeginInvoke((MethodInvoker)(() =>
+                this.UIThreadAsync(delegate
+                {
+                    int process = (int)(10 + (fileIndex / totalfiles * 90));
+                    progBarDel.Value = process;
+                    //lbPerzentage.Text = $"{process} %";
+                    progBarDel.PerformStep();
+                    progBarDel.Refresh();
+                    //}));
+                });
+                fileIndex++;
+            });
+
+            btnRunDel.Enabled = true;
+
+            // Helper.DeleteFiles(path, selectedtime);
         }
 
         private void cmboxScenario_SelectedIndexChanged(object sender, EventArgs e)
